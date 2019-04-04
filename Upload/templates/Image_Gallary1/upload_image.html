@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+  {% extends 'navbar.html' %}
+    {% block body_block %}
+
+    <style type="text/css">
+      label{
+        font-weight: bold;
+        color: #6f7070;
+      }
+
+      textarea{
+        vertical-align: top;
+      }
+    </style>
+
+    <div class="container bg-light">
+      <div class="jumbotron" style="background:#81e2ef;">
+        <h1 style="color:#6f7070">Upload Image</h1>
+        <small class="form-text text-muted" style="color:#6f7070">Please select images you want to upload and use plus button to upload next image.(can upload max 5 images, one in one input)</small>
+      </div>
+      <form id="imgFrom" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="txt" class="col-lg-6" align="center">Text:</label>
+        <input type="text" name="txt" class="col-lg-3">
+        <br>
+        <br>
+        <label for="description" class="col-lg-6" align="center">Description:</label>
+        <textarea name="description" rows="3" cols="80" class="col-lg-3"></textarea>
+        <br>
+        <br>
+        <label for="img1" class="col-lg-6" align="center">Image1:</label>
+        <input id="img1" type="file" name="img1" accept="image/*" class="col-lg-3"/>
+        <br>
+        <!-- <button id="plus" type="button" onclick="myFunction()" name="button" align="center"> -->
+        <i class="fa fa-plus-circle" id="plus" onclick="myFunction()" style="font-size:48px;color:orange;margin-left:90%"></i>
+
+        <!-- </button> -->
+        <br>
+        <br>
+        <input type="submit" name="submit" value="Submit" class="btn btn-success col-lg-3" align="center" style="float:left; margin-left:20%;">
+
+        <input type="reset" name="cancel" value="Cancel" class="btn btn-info col-lg-3" align="center" style="float:right; margin-right:24.5%;">
+
+      </form>
+    </div>
+
+    <script>
+
+    var cnt_button_clicked = 1
+
+      function myFunction() {
+        cnt_button_clicked += 1
+
+        console.log(cnt_button_clicked);
+
+        if (cnt_button_clicked <= 5) {
+          name = 'img'+String(cnt_button_clicked)
+
+          var input = document.createElement("input");
+          input.type = "file";
+          input.name = name;
+          input.id = name;
+          input.accept = "image/*";
+          input.classList.add("col-lg-3");
+
+          var form = document.getElementById("imgFrom");
+          var plusBTN = document.getElementById("plus");
+          form.insertBefore (input,plusBTN);
+
+          var label = document.createElement('label');
+          label.innerHTML = "Image"+String(cnt_button_clicked)+":";
+          label.classList.add("col-lg-6");
+          label.style.textAlign = "center";
+          form.insertBefore(label,input);
+
+          var br = document.createElement('br');
+          form.insertBefore(br,plusBTN);
+        }
+      }
+    </script>
+
+    {% endblock %}

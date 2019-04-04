@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+{% extends "navbar.html" %}
+  {% block body_block %}
+    <div class="jumbotron">
+      <h1>WELCOME TO MY FIRST DJANGO PROJECT !!!!</h1>
+      <br>
+      <h3>You can Upload anything you want, in this project and can store it to the database</h3>
+      <h3>such as</h3>
+      <ul>
+        <li>Image</li>
+        <li>PPT</li>
+        <li>Document</li>
+      </ul>
+      <h3>using the links of navbar given</h3>
+    </div>
+
+    <a href="{% url 'demo:uploadingImage' %}">Link to Demo</a>
+  {% endblock %}

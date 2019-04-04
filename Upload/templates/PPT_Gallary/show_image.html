@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block body_block %}
+  <br>
+  <br>
+  <h1>{{ text }}</h1>
+  <br>
+  <br>
+  <p>{{ description }}</p>
+
+  {% for ppt in ppts %}
+    <a href="{{ppt.url}}">{{ppt.name}}</a>
+    <br>
+  {% endfor %}
+{% endblock %}

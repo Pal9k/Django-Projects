@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block body_block %}
+  <br>
+  <br>
+  <h1>{{ text }}</h1>
+  <br>
+  <br>
+  <p>{{ description }}</p>
+
+  {% for img in images %}
+    <img src="{{img.url}}" alt="">
+  {% endfor %}
+{% endblock %}

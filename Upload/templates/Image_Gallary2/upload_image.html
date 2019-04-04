@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block body_block %}
+
+<style type="text/css">
+  label{
+    font-weight: bold;
+    color: #6f7070;
+  }
+
+  textarea{
+    vertical-align: top;
+  }
+</style>
+
+<div class="container bg-light">
+  <div class="jumbotron" style="background:#81e2ef;">
+    <h1 style="color:#6f7070">Upload Image</h1>
+    <small class="form-text text-muted" style="color:#6f7070">Please select multiple images you want to upload using shift</small>
+  </div>
+  <form id="user_form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="txt" class="col-lg-6" align="center">Text:</label>
+      {{userForm.text}}
+    <!-- <input type="text" name="txt" class="col-lg-3"> -->
+    <br>
+    <br>
+    <label for="description" class="col-lg-6" align="center">Description:</label>
+      {{userForm.description}}
+    <!-- <textarea name="description" rows="3" cols="80" class="col-lg-3"></textarea> -->
+    <br>
+    <br>
+    <label for="image" class="col-lg-6" align="center">Images:</label>
+      <input id="id_image" type="file" name="image" multiple="multiple">
+
+    <br>
+    <br>
+    <input type="submit" name="submit" value="Submit" class="btn btn-success col-lg-3" align="center" style="float:left; margin-left:20%;">
+
+    <input type="reset" name="cancel" value="Cancel" class="btn btn-info col-lg-3" align="center" style="float:right; margin-right:24.5%;">
+
+  </form>
+</div>
+
+
+{% endblock %}

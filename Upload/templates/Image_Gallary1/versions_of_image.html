@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% load staticfiles %}
+    {% block body_block %}
+    <div class="container">
+      <a href="{% url 'Image_Gallary1:uploadingImage' %}"
+      style="margin:80px; float:left; border:10px solid lightgray; color:gray;"
+      >
+        <h1 align=center>VERSION1</h1>
+        <span float="bottom">
+        <img src="{%static "images/version1.png"%}" alt="version1" width="300px" heigth="300px">
+        </span>
+      </a>
+
+    <a href="{% url 'Image_Gallary2:uploadingImage' %}"
+    style="margin:80px; float:right; border:10px solid lightgray; color:gray"
+    >
+    <h1 align=center>VERSION2</h1>
+    <span float="bottom">
+    <img src="{%static "images/version2.png"%}" alt="version2" width="300px" heigth="300px">
+    </span>
+    </div>
+    {% endblock %}
