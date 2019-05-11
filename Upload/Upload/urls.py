@@ -24,6 +24,7 @@ from django.conf import settings
 from Image_Gallary2 import urls
 from Image_Gallary1 import urls
 from PPT_Gallary import urls
+from Document_Gallary import urls
 from demo import urls
 
 urlpatterns = [
@@ -32,6 +33,7 @@ urlpatterns = [
     path('Image_Gallary/',include('Image_Gallary1.urls')),
     path('Image_Gallary/',include('Image_Gallary2.urls')),
     path('PPT_Gallary/',include('PPT_Gallary.urls')),
+    path('Document_Gallary/',include('Document_Gallary.urls')),
     path('demo/',include('demo.urls')),
 ]
 

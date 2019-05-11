@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Image_Gallary1',
     'Image_Gallary2',
     'PPT_Gallary',
+    'Document_Gallary',
     'demo',
 ]
 

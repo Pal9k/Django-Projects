@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block body_block %}
+  <br>
+  <br>
+  <h1>{{ text }}</h1>
+  <br>
+  <br>
+  <p>{{ description }}</p>
+
+  {% for doc in docs %}
+    <a href="{{doc.url}}">{{doc.name}}</a>
+    <br>
+  {% endfor %}
+{% endblock %}
