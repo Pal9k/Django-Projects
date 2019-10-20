@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+{% extends "navbar.html" %}
+  {% block body_block %}
+  <style type="text/css">
+
+  .title{
+    margin: 3px;
+    font-size: 25px;
+    font-family: cursive;
+    font-weight: bold;
+    color: darkblue;
+    float: left;
+
+  }
+
+  .type{
+    background-color:#269;
+  background-image: linear-gradient(white 2px, transparent 2px),
+  linear-gradient(90deg, white 2px, transparent 2px),
+  linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+
+  color: white;
+  font-size: 17px;
+  font-family:monospace;
+  font-weight: bold;
+
+  margin-left: 80%;
+  margin-right: 7%;
+  padding: 5px;
+  }
+
+  .desciption{
+    margin: 3px;
+    font-family: monospace;
+    font-size: 15px;
+  }
+
+  .date_label{
+    float: left;
+    color: red;
+    font-family: sans-serif;
+    margin: 3px;
+    font-size: 15px;
+  }
+
+  .date{
+    margin: 3px;
+  }
+
+  .ph_no{
+    margin: 3px;
+    color: #3c3e42;
+    font-weight: bold;
+    font-style: oblique;
+  }
+
+  .add{
+    margin: 3px;
+  }
+  </style>
+
+    {% for rac in records %}
+    <div class="col-lg-8">
+      <hr>
+        <p class="title">{{ rac.job_title }}</p>
+        <p class="type">{{ rac.type }}</p>
+        <p class="desciption">{{ rac.desciption }}</p>
+        <p class="ph_no"><i class="fa fa-phone-square" style="font-size:20px; margin-right:12px;"></i>{{ rac.mobileno }}</p>
+        <p class="add"><i class="fa fa-home" style="font-size:20px; margin-right:12px;"></i>{{ rac.add }}</p>
+        <label class="date_label" style="margin-right:5px;"><i class="fa fa-calendar" style="font-size:20px;color:red; margin-right:12px; float:left;"></i>Last Date to complete work:</label>
+        <p style="float:right; margin-right:40%; font-weight:bold; color:blue;" class="date">{{ rac.last_date }}</p>
+        <br>
+      <hr>
+    </div>
+    {% endfor %}
+  {% endblock %}

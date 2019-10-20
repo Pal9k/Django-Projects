@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+{% extends "../navbar.html" %}
+  {% block body_block %}
+  <style type="text/css">
+
+  /* body{
+    background-color: lightgray;
+  } */
+
+  .myCard{
+    padding: 0px;
+    /* border: 1px solid black; */
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+    height: 170px;
+    float: left;
+    margin: 20px;
+  }
+
+  .status{
+    background-color: white;
+    border-bottom: 1px solid black;
+    color: black;
+    padding: 0px;
+    font-size: 15px;
+  }
+
+  .status_details{
+    margin: 0px;
+  }
+
+  hr{
+    margin: 0px;
+    color: gray;
+    width: 10px;
+  }
+  .pic{
+    float: left;
+  }
+
+  .cardBody{
+    margin: 10px;
+  }
+
+  .details{
+    margin-left: 10px;
+    float: left;
+  }
+
+  .names{
+    font-size: 22px;
+    color: gray;
+    margin: 3px;
+  }
+
+  .types{
+    font-size: 15px;
+    background-color: skyblue;
+    padding: auto;
+    margin: 3px;
+  }
+
+  .ph{
+    margin: 3px;
+  }
+
+  .add{
+    margin: 3px;
+  }
+
+  .extra{
+    float: right;
+  }
+
+  .more{
+    margin-top: 50px;
+  }
+</style>
+
+    {% for rac in records %}
+    <div class="myCard col-lg-7">
+      <div class="status">
+        <p class="status_details" align="center">Available after {{rac.status}} days</p>
+        <hr>
+      </div>
+      <div class="cardBody">
+        <img class="pic" src="person.jpg" alt="person image" height="130px" width="130px">
+        <div class="details">
+          <p class="names">{{rac.name}}</p>
+          <label class="types">{{rac.type}}</label>
+          <p class="ph">{{rac.mobileno}}</p>
+          <p class="add">{{rac.add}}</p>
+        </div>
+      <div class="extra">
+        <p class="stars">{{rac.stars}}/5</p>
+        <button class="more" type="button" name="button">more..</button>
+      </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% endblock %}

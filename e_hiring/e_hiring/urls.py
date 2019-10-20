@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+# from worker_info import views
+from post import views
+from post import urls
+from worker_info import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.index,name="index"),
+    path('accounts/',include('accounts.urls',namespace='accounts')),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('post_job/',include('post.urls')),
+    path('employeeInfo/',include('worker_info.urls')),
 ]
