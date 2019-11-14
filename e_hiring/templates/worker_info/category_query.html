@@ -1,102 +1,83 @@
-<!DOCTYPE html>
 
-{% extends "../navbar.html" %}
-  {% block body_block %}
-  <style type="text/css">
 
-  /* body{
-    background-color: lightgray;
-  } */
 
-  .myCard{
-    padding: 0px;
-    /* border: 1px solid black; */
-    background-color: white;
-    border-radius: 10px 10px 0px 0px;
-    height: 170px;
-    float: left;
-    margin: 20px;
-  }
+  <!DOCTYPE html>
 
-  .status{
-    background-color: white;
-    border-bottom: 1px solid black;
-    color: black;
-    padding: 0px;
-    font-size: 15px;
-  }
+  {% extends "navbar.html" %}
+    {% block body_block %}
+    <style type="text/css">
 
-  .status_details{
-    margin: 0px;
-  }
+    .title{
+      margin: 3px;
+      font-size: 25px;
+      font-family: cursive;
+      font-weight: bold;
+      color: darkblue;
+      float: left;
 
-  hr{
-    margin: 0px;
-    color: gray;
-    width: 10px;
-  }
-  .pic{
-    float: left;
-  }
+    }
 
-  .cardBody{
-    margin: 10px;
-  }
+    .type{
+      background-color:#269;
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
 
-  .details{
-    margin-left: 10px;
-    float: left;
-  }
+    color: white;
+    font-size: 17px;
+    font-family:monospace;
+    font-weight: bold;
 
-  .names{
-    font-size: 22px;
-    color: gray;
-    margin: 3px;
-  }
+    margin-left: 80%;
+    margin-right: 7%;
+    padding: 5px;
+    }
 
-  .types{
-    font-size: 15px;
-    background-color: skyblue;
-    padding: auto;
-    margin: 3px;
-  }
+    .desciption{
+      margin: 3px;
+      font-family: monospace;
+      font-size: 15px;
+    }
 
-  .ph{
-    margin: 3px;
-  }
+    .date_label{
+      float: left;
+      color: red;
+      font-family: sans-serif;
+      margin: 3px;
+      font-size: 15px;
+    }
 
-  .add{
-    margin: 3px;
-  }
+    .date{
+      margin: 3px;
+    }
 
-  .extra{
-    float: right;
-  }
+    .ph_no{
+      margin: 3px;
+      color: #3c3e42;
+      font-weight: bold;
+      font-style: oblique;
+    }
 
-  .more{
-    margin-top: 50px;
-  }
-</style>
+    .add{
+      margin: 3px;
+    }
+    </style>
 
-    {% for rac in records %}
-    <div class="myCard col-lg-7">
-      <div class="status">
-        <p class="status_details" align="center">Available after {{rac.status}} days</p>
+      {% for rac in records %}
+      <div class="col-lg-8">
+        <hr>
+          <p class="title">{{ rac.name }}</p>
+          <p class="type">{{ rac.type }}</p>
+          <p class="desciption">{{ rac.desciption }}</p>
+          <p class="ph_no"><i class="fa fa-phone-square" style="font-size:20px; margin-right:12px;"></i>{{ rac.mobileno }}</p>
+          <p class="add"><i class="fa fa-home" style="font-size:20px; margin-right:12px;"></i>{{ rac.add }}</p>
+          <label class="date_label" style="margin-right:5px;"><i class="fa fa-calendar" style="font-size:20px;color:red; margin-right:12px; float:left;"></i>Will be available in:</label>
+          <p style="float:right; margin-right:40%; font-weight:bold; color:blue;" class="date">{{ rac.status }} days</p>
+          <br>
         <hr>
       </div>
-      <div class="cardBody">
-        <img class="pic" src="person.jpg" alt="person image" height="130px" width="130px">
-        <div class="details">
-          <p class="names">{{rac.name}}</p>
-          <label class="types">{{rac.type}}</label>
-          <p class="ph">{{rac.mobileno}}</p>
-          <p class="add">{{rac.add}}</p>
-        </div>
-      <div class="extra">
-        <p class="stars">{{rac.stars}}/5</p>
-        <button class="more" type="button" name="button">more..</button>
-      </div>
-      </div>
-    </div>
-    {% endfor %}
-  {% endblock %}
+      {% endfor %}
+    {% endblock %}
